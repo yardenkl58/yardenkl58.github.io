@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>cashking login</title>
+	<script type="text/javascript" src="js.js"></script>
 	
 </head>
 <body>
@@ -9,10 +10,10 @@
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '243148309848005',
+      appId      : '{your-app-id}',
       cookie     : true,
       xfbml      : true,
-      version    : 'v3.0'
+      version    : '{api-version}'
     });
       
     FB.AppEvents.logPageView();   
@@ -26,13 +27,12 @@
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-
-FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-});
-
-
 </script>
+
+<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>
 
 
 
