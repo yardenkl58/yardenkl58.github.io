@@ -10,13 +10,16 @@
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '{your-app-id}',
+      appId      : '243148309848005',
       cookie     : true,
       xfbml      : true,
-      version    : '{api-version}'
+      version    : 'v3.0'
     });
       
-    FB.AppEvents.logPageView();   
+    
+FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});   
       
   };
 
@@ -27,15 +30,16 @@
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+
+  function statusChangeCallback (response) {
+   if(response.status === 'connected') {
+   	console.log ('logged in and auth');
+   }
+   else {
+   	console.log ('not log in');
+   }
+  }
 </script>
-
-<fb:login-button 
-  scope="public_profile,email"
-  onlogin="checkLoginState();">
-</fb:login-button>
-
-
-
 
 </body>
 </html>
