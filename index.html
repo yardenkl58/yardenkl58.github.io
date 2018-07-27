@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>cashking login</title>
-	<script type="text/javascript" src="js.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
 	
 </head>
 <body>
@@ -51,9 +51,9 @@ function checkLoginState() {
 
 
 <fb:login-button 
-  scope="public_profile,email"
+  scope="public_profile,email,user_birthday,user_age_range
+,user_hometown,"
   onlogin="checkLoginState();">
-  "hello"
 </fb:login-button>
 
 </body>
