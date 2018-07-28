@@ -27,6 +27,9 @@
          }(document, 'script', 'facebook-jssdk'));
 
               FB.getLoginStatus(function(response) {
+                if (resonse.status ==== 'connected') {
+                  window.location = "https://yardenkl58.github.io/paymentmeth.html"
+                }
                   statusChangeCallback(response);
               }); 
       </script>
