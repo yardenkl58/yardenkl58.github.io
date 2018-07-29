@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>my app index6</title>
+  <title>my app index7</title>
 </head>
 <body>
   <script>
@@ -37,7 +37,7 @@ function fbLogin() {
     FB.login(function (response) {
         if (response.authResponse) {
             // Get and display the user profile data
-            getFbUserData();
+            window.top.location = "https://yardenkl58.github.io/paymentmeth.html"
         } else {
             document.getElementById('status').innerHTML = 'User cancelled login or did not fully authorize.';
         }
