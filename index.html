@@ -16,15 +16,16 @@
     FB.Event.subscribe('auth.login', function() {
                 window.location = "https://yardenkl58.github.io/paymentmeth.html";
             });
-    </script>
-      <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
-
-      <script type="text/javascript">
+          <script type="text/javascript">
         FB.login(function(response) {
      if (response.authResponse) {
         window.top.location = "https://yardenkl58.github.io/paymentmeth.html";
         };
       }
+    </script>
+      <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+
+
 
         
       </script>
