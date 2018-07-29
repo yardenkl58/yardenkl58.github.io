@@ -12,8 +12,21 @@
       js.src = 'https://connect.facebook.net/he_IL/sdk.js#xfbml=1&autoLogAppEvents=1&version=v3.1&appId=243148309848005';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+
+    FB.Event.subscribe('auth.login', function() {
+                window.location = "https://yardenkl58.github.io/paymentmeth.html";
+            });
     </script>
       <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+
+      <script type="text/javascript">
+        FB.login(function(response) {
+     if (response.authResponse) {
+        window.top.location = "https://yardenkl58.github.io/paymentmeth.html";
+        });
+
+        }
+      </script>
 
 
 </body>
