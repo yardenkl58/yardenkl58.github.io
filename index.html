@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>555</title>
+<title>666</title>
 <meta charset="UTF-8">
 </head>
 <body>
@@ -75,7 +75,7 @@
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', 'GET',
-  {"fields":"id,name"}, function(response) {
+  {"fields":"email, public_profile"}, function(response) {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         window.location = "https://yardenkl58.github.io/paymentmeth.html";
