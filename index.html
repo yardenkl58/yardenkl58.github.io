@@ -1,70 +1,133 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
-  <title>55</title>
+
+  <title>7</title>
+
+
 
 </head>
+
 <body>
 
+
+
 <script>
+
   window.fbAsyncInit = function() {
+
     FB.init({
+
       appId      : '243148309848005',
+
       cookie     : true,
+
       xfbml      : true,
+
       version    : 'v3.1'
+
     });
 
-
       
-    FB.AppEvents.logPageView();   
+
+    FB.AppEvents.logPageView();
 
 
-// Facebook login with JavaScript SDK
-function fbLogin() {
-    FB.login(function (response) {
-        if (response.authResponse) {
-            // Get and display the user profile data
-            window.top.location = "https://yardenkl58.github.io/paymentmeth.html"
-        } else {
-            document.getElementById('status').innerHTML = 'User cancelled login or did not fully authorize.';
-        }
-    }, {scope: 'email'});
-}
 
- // Check whether the user already logged in
     FB.getLoginStatus(function(response) {
+
         if (response.status === 'connected') {
+
             //display user data
+
             window.top.location = "https://yardenkl58.github.io/paymentmeth.html"
+
         }
-    });
+
+    });   
+
       
+
   };
 
+
+
   (function(d, s, id){
+
      var js, fjs = d.getElementsByTagName(s)[0];
+
      if (d.getElementById(id)) {return;}
+
      js = d.createElement(s); js.id = id;
+
      js.src = "https://connect.facebook.net/en_US/sdk.js";
+
      fjs.parentNode.insertBefore(js, fjs);
+
    }(document, 'script', 'facebook-jssdk'));
+
+
+
+  // Facebook login with JavaScript SDK
+
+function fbLogin() {
+
+    FB.login(function (response) {
+
+        if (response.authResponse) {
+
+            // Get and display the user profile data
+
+            window.top.location = "https://yardenkl58.github.io/paymentmeth.html"
+
+        } else {
+
+            document.getElementById('status').innerHTML = 'User cancelled login or did not fully authorize.';
+
+        }
+
+    }, {scope: 'email'});
+
+}
+
+
+
+
 
 
 
 </script>
 
+
+
   <a href="privacy policy.html">privacy policy</a> <br>
 
 
+
+
+
 <fb:login-button 
+
   scope="public_profile,email"
+
   onlogin="checkLoginState();">
-</fb:login-button>  
+
+</fb:login-button>
+
+
+
    
 
-</body>
-</html>
+
 
 </body>
+
+</html>
+
+
+
+</body>
+
 </html>
