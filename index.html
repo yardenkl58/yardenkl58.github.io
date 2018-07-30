@@ -1,110 +1,148 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
+  <title>1</title>
+  <style type="text/css">
+    body { padding: 2em; }
 
-  <title>5</title>
+
+/* Shared */
+.loginBtn {
+  box-sizing: border-box;
+  position: relative;
+  /* width: 13em;  - apply for fixed size */
+  margin: 0.2em;
+  padding: 0 15px 0 46px;
+  border: none;
+  text-align: left;
+  line-height: 34px;
+  white-space: nowrap;
+  border-radius: 0.2em;
+  font-size: 16px;
+  color: #FFF;
+}
+.loginBtn:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 100%;
+}
+.loginBtn:focus {
+  outline: none;
+}
+.loginBtn:active {
+  box-shadow: inset 0 0 0 32px rgba(0,0,0,0.1);
+}
 
 
+/* Facebook */
+.loginBtn--facebook {
+  background-color: #4C69BA;
+  background-image: linear-gradient(#4C69BA, #3B55A0);
+  /*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
+  text-shadow: 0 -1px 0 #354C8C;
+}
+.loginBtn--facebook:before {
+  border-right: #364e92 1px solid;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png') 6px 6px no-repeat;
+}
+.loginBtn--facebook:hover,
+.loginBtn--facebook:focus {
+  background-color: #5B7BD5;
+  background-image: linear-gradient(#5B7BD5, #4864B1);
+}
 
+
+/* Google */
+.loginBtn--google {
+  /*font-family: "Roboto", Roboto, arial, sans-serif;*/
+  background: #DD4B39;
+}
+.loginBtn--google:before {
+  border-right: #BB3F30 1px solid;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_google.png') 6px 6px no-repeat;
+}
+.loginBtn--google:hover,
+.loginBtn--google:focus {
+  background: #E74B37;
+}
+  </style>
 </head>
-
 <body>
+  <script type="text/javascript">
+    // Initialize Parse
+Parse.initialize("sBNEofCQlIMY2COGDLBWY6vZqETXThzZikPwZ0LT", "GL1RkAhq17zJoZXQU0GAfFxyc0flyHiHJZpA0fqS"); // don't forget to change these keys
+Parse.serverURL = "https://parseapi.back4app.com/";
 
-
-
-<script>
-
-  window.fbAsyncInit = function() {
-
-    FB.init({
-
-      appId      : '243148309848005',
-
-      cookie     : true,
-
-      xfbml      : true,
-
-      version    : 'v3.1'
-
+// Load the Facebook API asynchronous when the window starts loading
+window.fbAsyncInit = function() {
+    Parse.FacebookUtils.init({ // this line replaces FB.init({
+        appId      : '243148309848005', // Facebook App ID
+        cookie     : true,  // enable cookies to allow Parse to access the session
+        xfbml      : true,  // initialize Facebook social plugins on the page
+        version    : 'v3.1' // point to the latest Facebook Graph API version, found in FB's App dashboard.
     });
 
-      
+    // Put here code to run after the Facebook SDK is loaded.
+    function logIn() {
+    Parse.FacebookUtils.logIn("public_profile,email", {
+        success: function(user) {
+            if (!user.existed()) {
+                FB.api('/me?fields=id,name,email,permissions', function (response) {
+                    user.set('username', response.name);
+                    user.set('email', response.email);
 
-        FB.login();
+                    user.save(null, {
+                        success: function(user) {
+                            alert('User logged in and sign up through Facebook, with username: ' + user.get('username') + ' and email: ' + user.get('email'));
 
-
-
-         FB.getLoginStatus(function(response) {
-
-        if (response.status === 'connected') {
-
-            //display user data
-
-            window.top.location = "https://yardenkl58.github.io/paymentmeth.html"
-
+                            // You should redirect the user to another page after a successful login.
+                            window.location.replace('http://js-fb-login.back4app.io/logout.html');
+                        },
+                        error: function(user, error) {
+                            alert('Failed to save user to database with error: ' + error.message);
+                        }
+                    });
+                });
+            } else {
+                alert("User logged in through Facebook!");
+                // You should redirect the user to another page after a successful login.
+                window.location.replace('http://js-fb-login.back4app.io/logout.html');
+            }
+        },
+        error: function(user, error) {
+            console.log("User cancelled the Facebook login or did not fully authorize.");
         }
-    });   
-      
+    });
+}
+};
 
-  };
+// Include the Facebook SDK
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+  </script>
 
-
-
-  (function(d, s, id){
-
-     var js, fjs = d.getElementsByTagName(s)[0];
-
-     if (d.getElementById(id)) {return;}
-
-     js = d.createElement(s); js.id = id;
-
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-
-     fjs.parentNode.insertBefore(js, fjs);
-
-   }(document, 'script', 'facebook-jssdk'));
-
-
-
- 
+       <a href="privacy policy.html">privacy policy</a> <br>
 
 
 
 
 
+    <button class="loginBtn loginBtn--facebook">
+  Login with Facebook
+</button>
 
-</script>
-
-
-
-  <a href="privacy policy.html">privacy policy</a> <br>
-
-
-
-
-
-<fb:login-button 
-
-  scope="public_profile,email"
-
-  onlogin="checkLoginState();">
-
-</fb:login-button>
-
-
-
-   
-
-
+<button class="loginBtn loginBtn--google">
+  Login with Google
+</button>
 
 </body>
-
-</html>
-
-
-
-</body>
-
 </html>
