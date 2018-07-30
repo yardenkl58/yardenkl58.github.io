@@ -4,7 +4,7 @@
 
 <head>
 
-  <title>4</title>
+  <title>5</title>
 
 
 
@@ -32,10 +32,11 @@
 
       
 
+        FB.login();
 
 
 
-    FB.getLoginStatus(function(response) {
+         FB.getLoginStatus(function(response) {
 
         if (response.status === 'connected') {
 
@@ -44,7 +45,6 @@
             window.top.location = "https://yardenkl58.github.io/paymentmeth.html"
 
         }
-      FB.login();
     });   
       
 
