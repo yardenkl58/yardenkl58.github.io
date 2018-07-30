@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>5</title>
+  <title>55</title>
 
 </head>
 <body>
@@ -14,27 +14,13 @@
       xfbml      : true,
       version    : 'v3.1'
     });
+
+
       
-    FB.AppEvents.logPageView();
+    FB.AppEvents.logPageView();   
 
-    FB.getLoginStatus(function(response) {
-        if (response.status === 'connected') {
-            //display user data
-            window.top.location = "https://yardenkl58.github.io/paymentmeth.html"
-        }
-    });   
-      
-  };
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-
-  // Facebook login with JavaScript SDK
+// Facebook login with JavaScript SDK
 function fbLogin() {
     FB.login(function (response) {
         if (response.authResponse) {
@@ -46,6 +32,24 @@ function fbLogin() {
     }, {scope: 'email'});
 }
 
+ // Check whether the user already logged in
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+            //display user data
+            window.top.location = "https://yardenkl58.github.io/paymentmeth.html"
+        }
+    });
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
 
 
 </script>
@@ -56,8 +60,7 @@ function fbLogin() {
 <fb:login-button 
   scope="public_profile,email"
   onlogin="checkLoginState();">
-</fb:login-button>
-
+</fb:login-button>  
    
 
 </body>
