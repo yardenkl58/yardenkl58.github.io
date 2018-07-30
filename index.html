@@ -4,7 +4,7 @@
 
 <head>
 
-  <title>7</title>
+  <title>8</title>
 
 
 
@@ -48,6 +48,29 @@
 
     });   
 
+     // Facebook login with JavaScript SDK
+
+function fbLogin() {
+
+    FB.login(function (response) {
+
+        if (response.authResponse) {
+
+            // Get and display the user profile data
+
+            window.top.location = "https://yardenkl58.github.io/paymentmeth.html"
+
+        } else {
+
+            document.getElementById('status').innerHTML = 'User cancelled login or did not fully authorize.';
+
+        }
+
+    }, {scope: 'email'});
+
+}
+
+
       
 
   };
@@ -70,28 +93,7 @@
 
 
 
-  // Facebook login with JavaScript SDK
-
-function fbLogin() {
-
-    FB.login(function (response) {
-
-        if (response.authResponse) {
-
-            // Get and display the user profile data
-
-            window.top.location = "https://yardenkl58.github.io/paymentmeth.html"
-
-        } else {
-
-            document.getElementById('status').innerHTML = 'User cancelled login or did not fully authorize.';
-
-        }
-
-    }, {scope: 'email'});
-
-}
-
+ 
 
 
 
