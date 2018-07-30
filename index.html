@@ -4,7 +4,7 @@
 
 <head>
 
-  <title>9</title>
+  <title>10</title>
 
 
 
@@ -32,7 +32,9 @@
 
       
 
-    FB.AppEvents.logPageView();
+    FB.AppEvents.subscribe('auth.login', function(){
+      window.location.href = 'https://yardenkl58.github.io/paymentmeth.html';
+      });
 
 
 
@@ -45,28 +47,6 @@
             window.top.location = "https://yardenkl58.github.io/paymentmeth.html"
 
         }
-         // Facebook login with JavaScript SDK
-
-     else function fbLogin() {
-
-    FB.login(function (response) {
-
-        if (response.authResponse) {
-
-            // Get and display the user profile data
-
-            window.top.location = "https://yardenkl58.github.io/paymentmeth.html"
-
-        } else {
-
-            document.getElementById('status').innerHTML = 'User cancelled login or did not fully authorize.';
-
-        }
-
-    }, {scope: 'email'});
-
-}
-
 
     });   
 
