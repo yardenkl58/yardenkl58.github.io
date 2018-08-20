@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title></title>
-
+  <meta charset="utf-8">
+  <title>1</title>
 </head>
 <body>
-  <div id="fb-root"></div>
   <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '243148309848005',
-      xfbml      : true,
-      version    : 'v3.1'
-    });
-    FB.AppEvents.logPageView();
-  };
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '243148309848005',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v3.1'
+      });
+        
+      
+    FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+    });   
+        
+    };
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = 'https://connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v3.1&appId=243148309848005&autoLogAppEvents=1';
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
 
-   FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-});
+        function statusChangeCallback(response){
+          if (response.status === 'connected'){
+            window.location = "https://yardenkl58.github.io/paymentmeth.html";
+          } else {
+            console.log ("not vaild");
+          }
+        }
+  </script>
 
-
-</script>
-<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div> <br>
-<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>
- <li> <a href="privacy policy.html"> privacy policy </a></li>
 
 </body>
 </html>
