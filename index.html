@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>1</title>
+  <title>2</title>
 </head>
 <body>
   <script>
@@ -36,8 +36,19 @@
             console.log ("not vaild");
           }
         }
+
+
+        function checkLoginState() {
+          FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+          });
+        }
   </script>
 
+    <fb:login-button 
+      scope="public_profile,email"
+      onlogin="checkLoginState();">
+    </fb:login-button>
 
 </body>
 </html>
